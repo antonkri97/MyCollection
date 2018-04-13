@@ -1,3 +1,12 @@
+export function fetchImages() {
+  return fetch(
+    "https://api.giphy.com/v1/gifs/search?q=ryan+gosling&api_key=LuQ5TeE61rHtgdtLQTU5Su1120I12Tgr&limit=30"
+  )
+    .then(response => response.json())
+    .then(data => data.data)
+    .then(json => json.map(country => country.images.fixed_height.webp));
+}
+
 export function getImages() {
   return images;
 }
